@@ -5,8 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HdReact</title>
-    <script defer src="bundle.js"></script>
-</head>
+    <style>
+        /* Ultra-thin dark blue scrollbar - add to your global CSS file */
+        ::-webkit-scrollbar {
+            width: 3px;
+            /* Extra thin width */
+            height: 3px;
+            /* Extra thin height */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            /* Darker track */
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #1a5276, #0a2946);
+            /* Darker blue gradient */
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #2980b9, #1a5276);
+            /* Lighter on hover for contrast */
+        }
+
+        /* For Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #1a5276 rgba(0, 0, 0, 0.2);
+            /* Darker thumb and track color */
+        }
+
+        /* Enhanced smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Hide scrollbar completely when inactive */
+        .scroll-container:not(:hover):not(:focus) {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .scroll-container:not(:hover):not(:focus)::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+        }
+
+        /* Smooth transition when scrollbar appears */
+        .scroll-container {
+            transition: padding-right 0.2s ease;
+        }
+
+        .scroll-container:hover {
+            padding-right: 3px;
+            /* Makes space for scrollbar to avoid content shift */
+        }
+    </style>
+<script defer src="bundle.js"></script></head>
 
 <body>
     <div id="root"></div>
